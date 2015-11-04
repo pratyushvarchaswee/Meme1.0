@@ -9,11 +9,11 @@
 import Foundation
 import UIKit
 
-class Meme:NSObject{
+struct Meme{
     
    var text: String!
     
-  var image:UIImage?
+   var image:UIImage?
     
    var memedImage:UIImage!
     

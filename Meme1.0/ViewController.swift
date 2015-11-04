@@ -20,6 +20,7 @@ UINavigationControllerDelegate ,UITextFieldDelegate {
     
     @IBOutlet weak var textBottom: UITextField!
     
+    
  
     
     override func viewDidLoad() {
@@ -102,7 +103,7 @@ UINavigationControllerDelegate ,UITextFieldDelegate {
     func keyboardWillHide(notification: NSNotification) {
          if textBottom.isFirstResponder()
          {
-//        self.view.frame.origin.y += getKeyboardHeight(notification)
+        self.view.frame.origin.y += getKeyboardHeight(notification)
         }
     }
     
@@ -112,8 +113,6 @@ UINavigationControllerDelegate ,UITextFieldDelegate {
         let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
         return keyboardSize.CGRectValue().height
     }
-    
-    
     
    
     
@@ -153,9 +152,10 @@ UINavigationControllerDelegate ,UITextFieldDelegate {
     }
     
     
+    
+    
     func generateMemedImage() -> UIImage
     {
-        // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
         self.view.drawViewHierarchyInRect(self.view.frame,
             afterScreenUpdates: true)
@@ -167,13 +167,36 @@ UINavigationControllerDelegate ,UITextFieldDelegate {
     }
     
     @IBAction func sharePickedImage(sender: AnyObject) {
-//        let meme = Meme( text:"someval",
-//            image: imagePickerView.image, memedImage: generateMemedImage())
+       
         
-        let shareImage=UIActivityViewController(activityItems:["TEst purpose"], applicationActivities:nil)
+
+        let shareImage=UIActivityViewController(activityItems:[generateMemedImage()], applicationActivities:nil)
         
         self.presentViewController(shareImage, animated: true, completion: nil)
        
+        shareImage.completionWithItemsHandler = {
+            (activity, success, items, error) in
+            print("Activity: \(activity) Success: \(success) Items: \(items) Error: \(error)")
+            
+            
+           
+        
+        }
+       
+    }
+    
+//    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+//        if let touch = touches.first {
+//            print("\(touch)")
+//        }
+//        super.touchesBegan(touches, withEvent:event)
+//    }
+    
+    func save()  {
+        //Create the meme
+//       let meme = Meme( text: "Test Val", image:
+//           imagePickerView.image, memedImage: generateMemedImage())
+        
     }
     @IBAction func actionRest(sender: AnyObject) {
         imagePickerView.image=nil
