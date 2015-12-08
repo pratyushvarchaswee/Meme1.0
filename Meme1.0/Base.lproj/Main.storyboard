@@ -6,10 +6,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Meme Image Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="Meme1_0" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="MemeImageController" customModule="Meme1_0" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -20,6 +20,9 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wDm-Zn-NJJ">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="heightClass=regular" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="36" y="65" width="528" height="637"/>
+                                </variation>
                             </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZsP-Ka-eNh">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -41,43 +44,47 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EQg-ZX-v1w">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                <items>
-                                    <navigationItem id="isf-3t-QBf">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="bKP-FK-9VI">
-                                            <connections>
-                                                <action selector="sharePickedImage:" destination="vXZ-lx-hvc" id="rMt-H4-JmE"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="fcU-Wy-lFH">
-                                            <connections>
-                                                <action selector="actionRest:" destination="vXZ-lx-hvc" id="hMP-ih-00K"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i9U-Q6-tr3">
+                                <rect key="frame" x="0.0" y="11" width="600" height="44"/>
+                                <subviews>
+                                    <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EQg-ZX-v1w">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <items>
+                                            <navigationItem id="isf-3t-QBf">
+                                                <barButtonItem key="leftBarButtonItem" systemItem="action" id="bKP-FK-9VI">
+                                                    <connections>
+                                                        <action selector="sharePickedImage:" destination="vXZ-lx-hvc" id="rMt-H4-JmE"/>
+                                                    </connections>
+                                                </barButtonItem>
+                                                <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="fcU-Wy-lFH">
+                                                    <connections>
+                                                        <action selector="actionRest:" destination="vXZ-lx-hvc" id="hMP-ih-00K"/>
+                                                    </connections>
+                                                </barButtonItem>
+                                            </navigationItem>
+                                        </items>
+                                    </navigationBar>
+                                </subviews>
+                                <variation key="heightClass=regular" axis="vertical"/>
+                            </stackView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GyQ-Ib-iez">
                                 <rect key="frame" x="-25" y="-30" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                                <variation key="heightClass=regular" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="73" y="98" width="454" height="30"/>
+                                </variation>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="wDm-Zn-NJJ" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="16" id="4mi-Vk-hIy"/>
                             <constraint firstItem="ZsP-Ka-eNh" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="AiZ-7T-iOC"/>
-                            <constraint firstItem="EQg-ZX-v1w" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" constant="11" id="MNO-Ks-tdZ"/>
-                            <constraint firstItem="EQg-ZX-v1w" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-20" id="MNs-74-5QX"/>
-                            <constraint firstItem="GyQ-Ib-iez" firstAttribute="top" secondItem="EQg-ZX-v1w" secondAttribute="bottom" constant="43" id="SZP-6U-Tdr"/>
                             <constraint firstItem="DGb-r2-42B" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="53" id="ZZT-i3-Sb4"/>
-                            <constraint firstItem="wDm-Zn-NJJ" firstAttribute="top" secondItem="EQg-ZX-v1w" secondAttribute="bottom" constant="10" id="awn-Me-xu5"/>
                             <constraint firstItem="ZsP-Ka-eNh" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" id="c8s-11-Qi1"/>
                             <constraint firstAttribute="trailingMargin" secondItem="GyQ-Ib-iez" secondAttribute="trailing" constant="53" id="ceZ-2W-bfq"/>
                             <constraint firstItem="ZsP-Ka-eNh" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-22" id="dLV-4Q-wNZ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="DGb-r2-42B" secondAttribute="trailing" constant="53" id="fds-qB-OXv"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="EQg-ZX-v1w" secondAttribute="trailing" constant="-20" id="fec-fn-gmi"/>
                             <constraint firstAttribute="trailingMargin" secondItem="wDm-Zn-NJJ" secondAttribute="trailing" constant="16" id="iPA-Bi-0bC"/>
                             <constraint firstItem="GyQ-Ib-iez" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="53" id="oPT-Nk-6mg"/>
                             <constraint firstItem="ZsP-Ka-eNh" firstAttribute="top" secondItem="wDm-Zn-NJJ" secondAttribute="bottom" constant="10" id="pUP-1H-mNM"/>
@@ -89,26 +96,20 @@
                                 <exclude reference="wDm-Zn-NJJ"/>
                                 <exclude reference="ZsP-Ka-eNh"/>
                                 <exclude reference="DGb-r2-42B"/>
-                                <exclude reference="EQg-ZX-v1w"/>
                                 <exclude reference="GyQ-Ib-iez"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="ZZT-i3-Sb4"/>
                                 <exclude reference="fds-qB-OXv"/>
-                                <exclude reference="SZP-6U-Tdr"/>
                                 <exclude reference="ceZ-2W-bfq"/>
                                 <exclude reference="oPT-Nk-6mg"/>
                                 <exclude reference="w6F-La-GqY"/>
-                                <exclude reference="MNO-Ks-tdZ"/>
-                                <exclude reference="MNs-74-5QX"/>
-                                <exclude reference="fec-fn-gmi"/>
                                 <exclude reference="AiZ-7T-iOC"/>
                                 <exclude reference="c8s-11-Qi1"/>
                                 <exclude reference="dLV-4Q-wNZ"/>
                                 <exclude reference="pUP-1H-mNM"/>
                                 <exclude reference="qk1-yB-7M3"/>
                                 <exclude reference="4mi-Vk-hIy"/>
-                                <exclude reference="awn-Me-xu5"/>
                                 <exclude reference="iPA-Bi-0bC"/>
                             </mask>
                         </variation>
@@ -117,26 +118,20 @@
                                 <include reference="wDm-Zn-NJJ"/>
                                 <include reference="ZsP-Ka-eNh"/>
                                 <include reference="DGb-r2-42B"/>
-                                <include reference="EQg-ZX-v1w"/>
                                 <include reference="GyQ-Ib-iez"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="ZZT-i3-Sb4"/>
                                 <include reference="fds-qB-OXv"/>
-                                <include reference="SZP-6U-Tdr"/>
                                 <include reference="ceZ-2W-bfq"/>
                                 <include reference="oPT-Nk-6mg"/>
                                 <include reference="w6F-La-GqY"/>
-                                <include reference="MNO-Ks-tdZ"/>
-                                <include reference="MNs-74-5QX"/>
-                                <include reference="fec-fn-gmi"/>
                                 <include reference="AiZ-7T-iOC"/>
                                 <include reference="c8s-11-Qi1"/>
                                 <include reference="dLV-4Q-wNZ"/>
                                 <include reference="pUP-1H-mNM"/>
                                 <include reference="qk1-yB-7M3"/>
                                 <include reference="4mi-Vk-hIy"/>
-                                <include reference="awn-Me-xu5"/>
                                 <include reference="iPA-Bi-0bC"/>
                             </mask>
                         </variation>
@@ -145,9 +140,15 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="cameraButton" destination="BIb-Fa-jtR" id="Snp-fH-LTE"/>
+                        <outlet property="cancelBtn" destination="fcU-Wy-lFH" id="JBR-hA-A5O"/>
                         <outlet property="imagePickerView" destination="wDm-Zn-NJJ" id="Si1-zS-GyQ"/>
+                        <outlet property="shareBtn" destination="bKP-FK-9VI" id="oey-Uq-G1t"/>
                         <outlet property="textBottom" destination="DGb-r2-42B" id="IEP-Nb-RQz"/>
                         <outlet property="textTop" destination="GyQ-Ib-iez" id="RfD-rP-VHs"/>
+                        <outlet property="toolBottom" destination="ZsP-Ka-eNh" id="30V-Xg-iHu"/>
+                        <outlet property="toolBottomBar" destination="ZsP-Ka-eNh" id="b77-St-Hnr"/>
+                        <outlet property="toolTop" destination="EQg-ZX-v1w" id="hqY-4h-cu4"/>
+                        <outlet property="toolTopBar" destination="isf-3t-QBf" id="e56-Od-J9B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
