@@ -91,7 +91,7 @@ UINavigationControllerDelegate ,UITextFieldDelegate {
             NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 20)!,
             NSStrokeWidthAttributeName :1
         ]
-        textField.clearsOnBeginEditing=true
+        textField.text=""
         textField.defaultTextAttributes=memeTextAttributes
     }
     
