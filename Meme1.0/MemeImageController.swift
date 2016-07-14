@@ -60,14 +60,14 @@ UINavigationControllerDelegate ,UITextFieldDelegate {
     override func viewWillAppear(animated: Bool) {
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
         super.viewWillAppear(animated)
-        self.subscribeToKeyboardNotifications()
-        self.subscribeToKeyboarHideNotifications()
+        subscribeToKeyboardNotifications()
+        subscribeToKeyboarHideNotifications()
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        self.unsubscribeFromKeyboardNotifications()
-        self.unSubscribeToKeyboarHideNotifications()
+        unsubscribeFromKeyboardNotifications()
+        unSubscribeToKeyboarHideNotifications()
     }
 
     
@@ -88,7 +88,7 @@ UINavigationControllerDelegate ,UITextFieldDelegate {
             NSStrokeColorAttributeName : UIColor.brownColor(),
             NSForegroundColorAttributeName :UIColor.blackColor(),
             NSBackgroundColorAttributeName: UIColor.greenColor(),
-            NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 20)!,
+            NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 24)!,
             NSStrokeWidthAttributeName :1
         ]
         textField.text=""
@@ -150,7 +150,7 @@ UINavigationControllerDelegate ,UITextFieldDelegate {
         let mov = (up ? -mvHeight : mvHeight)
         
         UIView.animateWithDuration(0.3, animations: {
-           self.view.frame = CGRectOffset(self.view.frame, 0, mov)
+          self.view.frame = CGRectOffset(self.view.frame, 0, mov)
         })
     }
    
@@ -161,7 +161,7 @@ UINavigationControllerDelegate ,UITextFieldDelegate {
         let imagePicker=UIImagePickerController()
         imagePicker.delegate=self
         imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        self.presentViewController(imagePicker, animated:true, completion: nil)
+        presentViewController(imagePicker, animated:true, completion: nil)
         
     }
 
@@ -203,7 +203,7 @@ UINavigationControllerDelegate ,UITextFieldDelegate {
     {
         toolbarVisible(false)
         UIGraphicsBeginImageContext(self.view.frame.size)
-        self.view.drawViewHierarchyInRect(self.view.frame,
+        view.drawViewHierarchyInRect(view.frame,
             afterScreenUpdates: true)
         let memedImage : UIImage =
         UIGraphicsGetImageFromCurrentImageContext()
@@ -217,7 +217,7 @@ UINavigationControllerDelegate ,UITextFieldDelegate {
 
         let shareImage=UIActivityViewController(activityItems:[generateMemedImage()], applicationActivities:nil)
         
-        self.presentViewController(shareImage, animated: true, completion: nil)
+        presentViewController(shareImage, animated: true, completion: nil)
        
         shareImage.completionWithItemsHandler = {
             (activity, success, items, error) in
@@ -227,7 +227,8 @@ UINavigationControllerDelegate ,UITextFieldDelegate {
             {
             self.save()
                 shareImage.dismissViewControllerAnimated(true, completion: nil)
-            self.dismissViewControllerAnimated(true, completion: nil)
+             
+                self.dismissViewControllerAnimated(true, completion: nil)
             }
            
         
@@ -239,7 +240,7 @@ UINavigationControllerDelegate ,UITextFieldDelegate {
     
     func save()  {
        
-      _ = Meme( text: "Test Val", image:
+      _ = Meme( top: textTop.text,bottom: textBottom.text, image:
          imagePickerView.image, memedImage: generateMemedImage())
         
     }
