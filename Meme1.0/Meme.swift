@@ -11,15 +11,18 @@ import UIKit
 
 struct Meme{
     
-   var text: String!
+   var txtTop: String!
+    
+   var txtBottom: String!
     
    var image:UIImage?
     
    var memedImage:UIImage!
     
-   init(text:String!,image:UIImage?,memedImage:UIImage!)
+    init(top:String!,bottom:String!,image:UIImage?,memedImage:UIImage!)
    {
-    self.text=text
+    self.txtTop=top
+    self.txtBottom=bottom
     self.image=image
     self.memedImage=memedImage
     
